@@ -1,0 +1,30 @@
+<div>
+    <div class="container">
+        <div class="bg-light py-3" >
+            <form class="w-75 m-auto" #updateForm= 'ngForm' (ngSubmit)='updateNews(updateForm.value)'>
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" 
+                name="title"
+                [(ngModel)]='new.title'
+                
+                required>
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input id="description" class="form-control"
+                name="description"
+                [(ngModel)]='new.description'
+                required>
+              </div>
+              <input type="file" (change)='handelUpload($event)' name='avatar' accept="image/*">
+             
+              <button type="submit" class="btn btn-success btn-sm" [disabled]='updateForm.invalid'>Submit</button>
+              <button class="btn btn-dark btn-sm ms-2" (click)='back()'>Back</button>
+             </form>
+             
+            </div>
+    </div>
+</div>
+
+

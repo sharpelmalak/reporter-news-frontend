@@ -1,0 +1,67 @@
+<div>
+    <div class="container">
+      <div class="w-50 m-auto my-5">
+        <form
+          #newsForm="ngForm"
+          (ngSubmit)="addNews(newsForm.value); newsForm.reset()"
+          class="custom-form"
+        >
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              ngModel
+              #title="ngModel"
+              required
+            />
+            <div
+              class="errors d-flex justify-content-center"
+              *ngIf="title.invalid && title.touched"
+            >
+              <div *ngIf="title.errors?.['required']">
+                *Title Is required*
+              </div>
+              
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+           <textarea
+              
+           class="form-control"
+           id="description"
+           name="description"
+           ngModel
+           #description="ngModel"
+           required
+          
+         ></textarea>
+            <div
+              class="errors d-flex justify-content-center"
+              *ngIf="description.invalid && description.touched"
+            >
+              <div *ngIf="description.errors?.['required']">
+                *Description Is required*
+              </div>
+              
+            </div>
+          </div>
+          
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="newsForm.invalid"
+          >
+            Submit
+          </button>
+        </form>
+        <button class="btn btn-sm btn-dark mt-5 me-2" (click)='back()'>Back</button>
+
+      </div>
+    </div>
+  </div>
+  

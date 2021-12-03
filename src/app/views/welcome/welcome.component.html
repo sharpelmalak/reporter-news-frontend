@@ -1,0 +1,50 @@
+<!-- <img [src]="imagePath" /> -->
+
+<div class="w-bg">
+  <div class="overlay">
+    <!-- <div class="container py-5">
+      <div class="row d-flex justify-content-start align-items-center">
+        <div class="col-3">
+          <div class="card bg-dark text-white" style="border-radius: 1rem">
+            <div class="card-body p-3 text-center">
+              <div class="mb-md-3 mt-md-2 pb-3">
+                <button class="btn btn-outline-light btn-lg px-5" >
+                  Login
+                </button>
+                <br />
+                <button class="mt-2 btn btn-outline-light btn-lg px-5">
+                  Sign Up
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <div class="container">
+      <div class="d-flex">
+        <div *ngIf='authCheck'>
+          <div class="bg-transparent border-0 text-white mt-5 card_custom" style="padding-left: 0px !important;">
+           
+            <div class="card-body">
+              <h5 class="card-title">Sign In To View All News</h5>
+              <p class="card-text">Join Us as a reporter to Create your posts</p>
+              <a routerLink='/login' class="btn btn-dark">Login</a>
+            </div>
+          </div>
+        </div>
+        <div class="card my-4 mx-2" style="width: 30%;" *ngFor='let new of news'>
+          <img src='data:image/png;base64,{{new.avatar}}' alt='News Image'>
+          <div class="card-body">
+            <h5 class="card-title">{{new.title}}</h5>
+            <p class="card-text">{{new.description}}</p>
+            <!-- <a href="#" class="btn btn-primary">View</a> -->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

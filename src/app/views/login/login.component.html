@@ -1,0 +1,82 @@
+<div>
+  <div class="container">
+    <div class="w-50 m-auto my-5">
+      <form
+        #loginForm="ngForm"
+        (ngSubmit)="login(loginForm.value); loginForm.reset()"
+        class="custom-form"
+      >
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            #email="ngModel"
+            required
+            email
+            (focus)="changeLogin()"
+          />
+          <div
+            class="errors d-flex justify-content-center"
+            *ngIf="email.invalid && email.touched"
+          >
+            <div *ngIf="email.errors?.['required']">
+              *Email Address Is required*
+            </div>
+            <div *ngIf="email.errors?.['email']">
+              *Email Address Is Not Valid*
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            ngModel
+            #password="ngModel"
+            required
+            minlength="6"
+            (focus)="changeLogin()"
+          />
+          <div
+            class="errors d-flex justify-content-center"
+            *ngIf="password.invalid && password.touched"
+          >
+            <div *ngIf="password.errors?.['required']">
+              *Password Is required*
+            </div>
+            <div *ngIf="password.errors?.['minlength']">
+              *password Must be
+              {{password.errors?.['minlength'].requiredLength}} characters at
+              least*
+            </div>
+          </div>
+        </div>
+        <div
+          class="errors d-flex justify-content-center mb-3"
+          *ngIf="checkLogin"
+        >
+          *Please Check Email or Password*
+        </div>
+         
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="loginForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
+      <div class="my-3">
+        <span>Don't Have an Account ? <a routerLink='/signup'><button class="btn btn-sm btn-dark"> Register</button></a></span>
+      </div>
+    </div>
+  </div>
+</div>
