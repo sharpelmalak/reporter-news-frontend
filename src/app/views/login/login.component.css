@@ -5,3 +5,10 @@
 .form-control.ng-invalid.ng-touched{
     border: 2px red  solid;
 }
+
+.myForm{
+    width: 30%;
+    height: 540px;
+    color: white;
+    text-align: center;
+}
